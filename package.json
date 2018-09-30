@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "next": "^7.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-grid-system": "^4.3.1",
+    "reactstrap": "^6.4.0"
+  },
+  "name": "RoverRuckusScorer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "eslint-config-lemon": "^0.1.8"
+  }
+}
