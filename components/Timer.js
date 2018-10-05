@@ -29,6 +29,15 @@ export default class extends React.Component {
     this.setState({ interval: null })
   }
 
+  onClearClick = () => {
+    if (this.state.interval) clearInterval(this.state.interval)
+
+    this.setState({
+      time: 0,
+      interval: null,
+    })
+  }
+
   render() {
     return (
       <div>
@@ -46,6 +55,7 @@ export default class extends React.Component {
             <Button color="primary" onClick={this.onPauseClick}>
               <i className="fas fa-pause" />
             </Button>
+            <Button onClick={this.onClearClick}>Clear</Button>
           </ButtonGroup>
         </Container>
       </div>

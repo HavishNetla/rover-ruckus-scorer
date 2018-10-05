@@ -17,9 +17,6 @@ export default class extends React.Component {
     depotClaiming: 0,
     robot1crater: 0,
     robot2crater: 0,
-
-    cargoMinerals: 0,
-    depotMinerals: 0,
   }
 
   calculateAutoScore = () =>
@@ -30,9 +27,6 @@ export default class extends React.Component {
     this.state.robot1crater * 10 +
     this.state.robot2crater * 10
 
-  calculateTeleScore = () =>
-    this.state.cargoMinerals * 5 + this.state.depotMinerals * 2
-
   render() {
     return (
       <div>
@@ -42,7 +36,7 @@ export default class extends React.Component {
               <h1>Autonomous: {this.calculateAutoScore()}</h1>
             </Col>
             <Col>
-              <h1>Tele-Op: {this.calculateTeleScore()}</h1>
+              <h1>Tele-Op: {this.calculateAutoScore()}</h1>
             </Col>
             <Col>
               <h1>End Game: {this.calculateAutoScore()}</h1>
@@ -51,6 +45,8 @@ export default class extends React.Component {
           <Row>
             <Col>
               <Jumbotron>
+                <h1>Autonomous: {this.calculateAutoScore()}</h1>
+
                 <Row style={{ textAlign: 'center' }}>
                   <Col>
                     <h4>Landing</h4>
@@ -108,41 +104,6 @@ export default class extends React.Component {
                   </Col>
                 </Row>
               </Jumbotron>
-            </Col>
-            <Col>
-              <Jumbotron>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
-                    <h4>Minerals in Cargo Hold</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
-                    <Input type="number" id="exampleEmail" />
-                    <ButtonGroup>
-                      <Button>+1</Button>
-                      <Button>+2</Button>
-                    </ButtonGroup>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center', marginTop: '3em' }}>
-                  <Col>
-                    <h4>Minerals in Depot</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
-                    <Input type="number" id="exampleEmail" />
-                    <ButtonGroup>
-                      <Button>+1</Button>
-                      <Button>+2</Button>
-                    </ButtonGroup>
-                  </Col>
-                </Row>
-              </Jumbotron>
-            </Col>
-            <Col>
-              <Jumbotron>End Game</Jumbotron>
             </Col>
           </Row>
         </Container>
