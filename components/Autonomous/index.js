@@ -6,6 +6,7 @@ import {
   Input,
   Button,
   ButtonGroup,
+  Form,
 } from 'reactstrap'
 import ToggleButton from '../ToggleButton'
 
@@ -20,6 +21,9 @@ export default class extends React.Component {
 
     cargoMinerals: 0,
     depotMinerals: 0,
+
+    cargo: 0,
+    depot: 0,
   }
 
   calculateAutoScore = () =>
@@ -30,13 +34,51 @@ export default class extends React.Component {
     this.state.robot1crater * 10 +
     this.state.robot2crater * 10
 
-  calculateTeleScore = () =>
-    this.state.cargoMinerals * 5 + this.state.depotMinerals * 2
+  calculateTeleScore = () => this.state.cargo * 5 + this.state.depot * 2
+
+  handleDepotChange = event => {
+    this.setState({ depot: event.target.value })
+  }
+
+  onDepotIncrement = plus2 => {
+    if (plus2 === true) {
+      this.setState({
+        depot: (this.state.depot = parseInt(this.state.depot) + 2),
+      })
+    } else if (plus2 === false) {
+      this.setState({
+        depot: (this.state.depot = parseInt(this.state.depot) + 1),
+      })
+    }
+  }
+
+  handleCargoChange = event => {
+    this.setState({ cargo: event.target.value })
+  }
+
+  onCargoIncrement = plus2 => {
+    if (plus2 === true) {
+      this.setState({
+        cargo: (this.state.cargo = parseInt(this.state.cargo) + 2),
+      })
+    } else if (plus2 === false) {
+      this.setState({
+        cargo: (this.state.cargo = parseInt(this.state.cargo) + 1),
+      })
+    }
+  }
 
   render() {
+    const { cargo } = this.state
+
     return (
       <div>
         <Container style={{ marginTop: '3em' }}>
+          <Row style={{ textAlign: 'center' }}>
+            <h1>
+              Score: {this.calculateAutoScore() + this.calculateTeleScore()}
+            </h1>
+          </Row>
           <Row>
             <Col>
               <h1>Autonomous: {this.calculateAutoScore()}</h1>
@@ -118,10 +160,21 @@ export default class extends React.Component {
                 </Row>
                 <Row style={{ textAlign: 'center' }}>
                   <Col>
-                    <Input type="number" id="exampleEmail" />
+                    <Form>
+                      <Input
+                        type="number"
+                        value={this.state.cargo}
+                        cargo={this.state.cargo}
+                        onChange={this.handleCargoChange}
+                      />
+                    </Form>
                     <ButtonGroup>
-                      <Button>+1</Button>
-                      <Button>+2</Button>
+                      <Button onClick={() => this.onCargoIncrement(false)}>
+                        +1
+                      </Button>
+                      <Button onClick={() => this.onCargoIncrement(true)}>
+                        +2
+                      </Button>
                     </ButtonGroup>
                   </Col>
                 </Row>
@@ -132,15 +185,25 @@ export default class extends React.Component {
                 </Row>
                 <Row style={{ textAlign: 'center' }}>
                   <Col>
-                    <Input type="number" id="exampleEmail" />
+                    <Input
+                      type="number"
+                      value={this.state.depot}
+                      cargo={this.state.depot}
+                      onChange={this.handleDepotChange}
+                    />
                     <ButtonGroup>
-                      <Button>+1</Button>
-                      <Button>+2</Button>
+                      <Button onClick={() => this.onDepotIncrement(false)}>
+                        +1
+                      </Button>
+                      <Button onClick={() => this.onDepotIncrement(true)}>
+                        +2
+                      </Button>
                     </ButtonGroup>
                   </Col>
                 </Row>
               </Jumbotron>
             </Col>
+
             <Col>
               <Jumbotron>End Game</Jumbotron>
             </Col>
