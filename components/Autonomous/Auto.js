@@ -1,12 +1,4 @@
-import {
-  Jumbotron,
-  Container,
-  Row,
-  Col,
-  Input,
-  Button,
-  ButtonGroup,
-} from 'reactstrap'
+import { Jumbotron, Row, Col } from 'reactstrap'
 import ToggleButton from '../ToggleButton'
 
 export default class extends React.Component {
@@ -30,83 +22,60 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <Container style={{ marginTop: '3em' }}>
-          <Row>
+        <Jumbotron>
+          <h1>Autonomous: {this.calculateAutoScore()}</h1>
+
+          <Row style={{ textAlign: 'center' }}>
             <Col>
-              <h1>Autonomous: {this.calculateAutoScore()}</h1>
+              <h4>Landing</h4>
             </Col>
             <Col>
-              <h1>Tele-Op: {this.calculateAutoScore()}</h1>
-            </Col>
-            <Col>
-              <h1>End Game: {this.calculateAutoScore()}</h1>
+              <h4>Sampling</h4>
             </Col>
           </Row>
-          <Row>
+          <Row style={{ textAlign: 'center' }}>
             <Col>
-              <Jumbotron>
-                <h1>Autonomous: {this.calculateAutoScore()}</h1>
-
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
-                    <h4>Landing</h4>
-                  </Col>
-                  <Col>
-                    <h4>Sampling</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
-                    <ToggleButton
-                      values={['0', '1', '2']}
-                      onChange={e =>
-                        this.setState({ robot1Landing: e.selected })
-                      }
-                    />
-                  </Col>
-                  <Col>
-                    <ToggleButton
-                      values={['0', '1', '2']}
-                      onChange={e => this.setState({ sampling: e.selected })}
-                    />
-                  </Col>
-                </Row>
-
-                <Row style={{ textAlign: 'center' }}>
-                  <Col style={{ marginTop: '3em' }}>
-                    <h4>Alliance Depot Claiming</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
-                    <ToggleButton
-                      values={['0', '1', '2']}
-                      onChange={e =>
-                        this.setState({ depotClaiming: e.selected })
-                      }
-                    />
-                  </Col>
-                </Row>
-
-                <Row style={{ textAlign: 'center', marginTop: '3em' }}>
-                  <Col>
-                    <h4>Crater Parking</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
-                    <ToggleButton
-                      values={['0', '1', '2']}
-                      onChange={e =>
-                        this.setState({ robot1crater: e.selected })
-                      }
-                    />
-                  </Col>
-                </Row>
-              </Jumbotron>
+              <ToggleButton
+                values={['0', '1', '2']}
+                onChange={e => this.setState({ robot1Landing: e.selected })}
+              />
+            </Col>
+            <Col>
+              <ToggleButton
+                values={['0', '1', '2']}
+                onChange={e => this.setState({ sampling: e.selected })}
+              />
             </Col>
           </Row>
-        </Container>
+
+          <Row style={{ textAlign: 'center' }}>
+            <Col style={{ marginTop: '3em' }}>
+              <h4>Alliance Depot Claiming</h4>
+            </Col>
+          </Row>
+          <Row style={{ textAlign: 'center' }}>
+            <Col>
+              <ToggleButton
+                values={['0', '1', '2']}
+                onChange={e => this.setState({ depotClaiming: e.selected })}
+              />
+            </Col>
+          </Row>
+
+          <Row style={{ textAlign: 'center', marginTop: '3em' }}>
+            <Col>
+              <h4>Crater Parking</h4>
+            </Col>
+          </Row>
+          <Row style={{ textAlign: 'center' }}>
+            <Col>
+              <ToggleButton
+                values={['0', '1', '2']}
+                onChange={e => this.setState({ robot1crater: e.selected })}
+              />
+            </Col>
+          </Row>
+        </Jumbotron>
       </div>
     )
   }
