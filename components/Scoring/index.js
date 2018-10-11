@@ -99,7 +99,7 @@ export default class extends React.Component {
                 display: 'table-cell',
               }}
             >
-              <Jumbotron style={{ minWidth: 280 }}>
+              <Jumbotron style={{ minWidth: 280, height: 550 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
                     <h2>Autonomous: {this.calculateAutoScore()}</h2>
@@ -161,7 +161,7 @@ export default class extends React.Component {
             </Col>
 
             <Col>
-              <Jumbotron style={{ minWidth: 280 }}>
+              <Jumbotron style={{ minWidth: 280, height: 550 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
                     <h2>Tele-Op: {this.calculateTeleScore()}</h2>
@@ -219,9 +219,11 @@ export default class extends React.Component {
                 </Row>
               </Jumbotron>
             </Col>
+          </Row>
 
+          <Row>
             <Col>
-              <Jumbotron style={{ minWidth: 280 }}>
+              <Jumbotron style={{ minWidth: 280, height: 550 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
                     <h2>End Game: {this.calculateEndGameScore()}</h2>
