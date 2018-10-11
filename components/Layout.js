@@ -1,3 +1,5 @@
+import Nav from './Nav'
+
 const Layout = ({ children }) => (
   <div>
     <link
@@ -12,6 +14,7 @@ const Layout = ({ children }) => (
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
       crossOrigin="anonymous"
     />
+    <Nav />
     <div>{children}</div>
   </div>
 )
