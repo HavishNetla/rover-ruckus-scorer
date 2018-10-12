@@ -99,7 +99,7 @@ export default class extends React.Component {
                 display: 'table-cell',
               }}
             >
-              <Jumbotron style={{ minWidth: 280, height: 550 }}>
+              <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
                     <h2>Autonomous: {this.calculateAutoScore()}</h2>
@@ -108,19 +108,13 @@ export default class extends React.Component {
                 <Row style={{ textAlign: 'center' }}>
                   <Col>
                     <h4>Landing</h4>
-                  </Col>
-                  <Col>
-                    <h4>Sampling</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
                     <ToggleButton
                       values={['0', '1', '2']}
                       onChange={e => this.setState({ landing: e.selected })}
                     />
                   </Col>
                   <Col>
+                    <h4>Sampling</h4>
                     <ToggleButton
                       values={['0', '1', '2']}
                       onChange={e => this.setState({ sampling: e.selected })}
@@ -131,10 +125,6 @@ export default class extends React.Component {
                 <Row style={{ textAlign: 'center' }}>
                   <Col style={{ marginTop: '3em' }}>
                     <h4>Alliance Depot Claiming</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
                     <ToggleButton
                       values={['0', '1', '2']}
                       onChange={e =>
@@ -147,10 +137,6 @@ export default class extends React.Component {
                 <Row style={{ textAlign: 'center', marginTop: '3em' }}>
                   <Col>
                     <h4>Crater Parking</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
                     <ToggleButton
                       values={['0', '1', '2']}
                       onChange={e => this.setState({ crater: e.selected })}
@@ -160,8 +146,12 @@ export default class extends React.Component {
               </Jumbotron>
             </Col>
 
-            <Col>
-              <Jumbotron style={{ minWidth: 280, height: 550 }}>
+            <Col
+              style={{
+                display: 'table-cell',
+              }}
+            >
+              <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
                     <h2>Tele-Op: {this.calculateTeleScore()}</h2>
@@ -170,10 +160,6 @@ export default class extends React.Component {
                 <Row style={{ textAlign: 'center' }}>
                   <Col>
                     <h4>Minerals in Cargo Hold</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
                     <Form>
                       <Input
                         type="number"
@@ -196,10 +182,6 @@ export default class extends React.Component {
                 <Row style={{ textAlign: 'center', marginTop: '3em' }}>
                   <Col>
                     <h4>Minerals in Depot</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
                     <Input
                       type="number"
                       value={this.state.depot}
@@ -219,11 +201,13 @@ export default class extends React.Component {
                 </Row>
               </Jumbotron>
             </Col>
-          </Row>
 
-          <Row>
-            <Col>
-              <Jumbotron style={{ minWidth: 280, height: 550 }}>
+            <Col
+              style={{
+                display: 'table-cell',
+              }}
+            >
+              <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
                     <h2>End Game: {this.calculateEndGameScore()}</h2>
@@ -232,17 +216,12 @@ export default class extends React.Component {
                 <Row style={{ textAlign: 'center' }}>
                   <Col>
                     <h4>Latched Robots</h4>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
                     <ToggleButton
                       values={['0', '1', '2']}
                       onChange={e => this.setState({ latch: e.selected })}
                     />
                   </Col>
                 </Row>
-
                 <Row style={{ textAlign: 'center' }}>
                   <Col style={{ marginTop: '3em' }}>
                     <h4>Parked Robots</h4>
@@ -251,10 +230,6 @@ export default class extends React.Component {
                 <Row style={{ textAlign: 'center' }}>
                   <Col>
                     <h6>Robot 1</h6>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
                     <ToggleButton
                       values={['Not Parked', 'In', 'Fully In']}
                       onChange={e => {
@@ -274,10 +249,6 @@ export default class extends React.Component {
                 <Row style={{ textAlign: 'center', paddingTop: 20 }}>
                   <Col>
                     <h6>Robot 2</h6>
-                  </Col>
-                </Row>
-                <Row style={{ textAlign: 'center' }}>
-                  <Col>
                     <ToggleButton
                       values={['Not Parked', 'In', 'Fully In']}
                       onChange={e => {

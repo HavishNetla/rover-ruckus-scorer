@@ -5,7 +5,6 @@ import Scoring from '../components/Scoring'
 
 export default () => (
   <Layout>
-    <Timer />
     <Scoring />
   </Layout>
 )

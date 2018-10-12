@@ -28,7 +28,7 @@ export default class Example extends React.Component {
     return (
       <div>
         <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/">Rover Ruckus Scorer v1.0.0</NavbarBrand>
+          <NavbarBrand href="/">Rover Ruckus Scorer</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -36,9 +36,6 @@ export default class Example extends React.Component {
                 <NavLink href="https://github.com/havish10/rover-ruckus-scorer">
                   GitHub
                 </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/changelog">Change Log</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
