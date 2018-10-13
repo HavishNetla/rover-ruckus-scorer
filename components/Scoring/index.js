@@ -105,7 +105,7 @@ export default class extends React.Component {
             textAlign: 'center',
             position: 'sticky',
             top: 0,
-            zIndex: 1,
+            zIndex: 2,
           }}
         >
           <h1
@@ -119,7 +119,7 @@ export default class extends React.Component {
               this.calculateTeleScore() +
               this.calculateEndGameScore()}
           </h1>
-          <Button color="danger" size="lg" onClick={this.onClearClick }>
+          <Button color="danger" size="lg" onClick={this.onClearClick}>
             Clear
           </Button>
         </div>

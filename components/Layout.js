@@ -22,7 +22,6 @@ const Layout = ({ children }) => (
       />
     </head>
 
-    <Nav />
     <div>{children}</div>
   </div>
 )
