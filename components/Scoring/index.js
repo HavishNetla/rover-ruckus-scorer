@@ -82,17 +82,48 @@ export default class extends React.Component {
     }
   }
 
+  onClearClick = () => {
+    this.setState({ landing: 0 })
+    this.setState({ sampling: 0 })
+    this.setState({ depotClaiming: 0 })
+    this.setState({ crater: 0 })
+    this.setState({ cargo: 0 })
+    this.setState({ depot: 0 })
+    this.setState({ latch: 0 })
+    this.setState({ robot1Park: 0 })
+    this.setState({ robot2Park: 0 })
+  }
+
   render() {
     return (
       <div>
-        <Container style={{ marginTop: '3em' }}>
-          <h1 className="display-3" style={{ textAlign: 'center' }}>
+        <div
+          style={{
+            paddingBottom: 15,
+            paddingTop: 15,
+            backgroundColor: '#cecece',
+            textAlign: 'center',
+            position: 'sticky',
+            top: 0,
+            zIndex: 1,
+          }}
+        >
+          <h1
+            className="display-3"
+            style={{
+              borderRadius: '0.3rem',
+            }}
+          >
             Score:{' '}
             {this.calculateAutoScore() +
               this.calculateTeleScore() +
               this.calculateEndGameScore()}
           </h1>
-
+          <Button color="danger" size="lg" onClick={this.onClearClick }>
+            Clear
+          </Button>
+        </div>
+        <Container style={{ marginTop: '3em' }}>
           <Row>
             <Col
               style={{
