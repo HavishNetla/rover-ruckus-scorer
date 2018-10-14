@@ -8,7 +8,10 @@ import {
   ButtonGroup,
   Form,
 } from 'reactstrap'
+import Cookies from 'universal-cookie'
 import ToggleButton from '../ToggleButton'
+
+const cookies = new Cookies()
 
 export default class extends React.Component {
   state = {
@@ -49,6 +52,16 @@ export default class extends React.Component {
     }
   }
 
+  onClearClick = () => {
+    window.location.reload() // OOF
+  }
+
+  onKeyPress = event => {
+    if (event.which === 13 /* Enter */) {
+      event.preventDefault()
+    }
+  }
+
   calculateAutoScore = () =>
     this.state.landing * 30 +
     this.state.sampling * 25 +
@@ -76,24 +89,6 @@ export default class extends React.Component {
     }
   }
 
-  onKeyPress = event => {
-    if (event.which === 13 /* Enter */) {
-      event.preventDefault()
-    }
-  }
-
-  onClearClick = () => {
-    this.setState({ landing: 0 })
-    this.setState({ sampling: 0 })
-    this.setState({ depotClaiming: 0 })
-    this.setState({ crater: 0 })
-    this.setState({ cargo: 0 })
-    this.setState({ depot: 0 })
-    this.setState({ latch: 0 })
-    this.setState({ robot1Park: 0 })
-    this.setState({ robot2Park: 0 })
-  }
-
   render() {
     return (
       <div>
@@ -109,7 +104,6 @@ export default class extends React.Component {
           }}
         >
           <h1
-            className="display-3"
             style={{
               borderRadius: '0.3rem',
             }}
@@ -119,10 +113,11 @@ export default class extends React.Component {
               this.calculateTeleScore() +
               this.calculateEndGameScore()}
           </h1>
-          <Button color="danger" size="lg" onClick={this.onClearClick}>
+          <Button outline color="danger" size="xs" onClick={this.onClearClick}>
             Clear
           </Button>
         </div>
+
         <Container style={{ marginTop: '3em' }}>
           <Row>
             <Col
