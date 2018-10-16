@@ -4,6 +4,7 @@
     "next": "^7.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-ga": "^2.5.3",
     "react-grid-system": "^4.3.1",
     "react-sticky": "^6.0.3",
     "reactstrap": "^6.4.0",
@@ -20,6 +21,5 @@
   },
   "devDependencies": {
     "eslint-config-lemon": "^0.1.8"
-  },
-  "homepage": "https://havish10.github.io/RR2-Scorer"
+  }
 }

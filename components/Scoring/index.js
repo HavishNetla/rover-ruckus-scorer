@@ -295,6 +295,12 @@ export default class extends React.Component {
             </Col>
           </Row>
         </Container>
+        <Button onClick={() => localStorage.setItem('Name', 1)}>
+          CLICK ME
+        </Button>
+        <Button onClick={() => alert(localStorage.getItem('Name'))}>
+          CLICK ME 1
+        </Button>
       </div>
     )
   }
