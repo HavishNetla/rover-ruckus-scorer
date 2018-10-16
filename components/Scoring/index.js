@@ -8,10 +8,7 @@ import {
   ButtonGroup,
   Form,
 } from 'reactstrap'
-import Cookies from 'universal-cookie'
 import ToggleButton from '../ToggleButton'
-
-const cookies = new Cookies()
 
 export default class extends React.Component {
   state = {
@@ -295,10 +292,20 @@ export default class extends React.Component {
             </Col>
           </Row>
         </Container>
-        <Button onClick={() => localStorage.setItem('Name', 1)}>
+        <Button
+          onClick={() => {
+            const names = ['havish', 'denial', 'jeff']
+            localStorage.setItem('names', JSON.stringify(names))
+          }}
+        >
           CLICK ME
         </Button>
-        <Button onClick={() => alert(localStorage.getItem('Name'))}>
+        <Button
+          onClick={() => {
+            const storedNames = JSON.parse(localStorage.getItem('names'))
+            console.log(storedNames)
+          }}
+        >
           CLICK ME 1
         </Button>
       </div>

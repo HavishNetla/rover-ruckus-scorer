@@ -1,10 +1,13 @@
 {
   "dependencies": {
+    "auth0-js": "^9.8.0",
     "date-fns": "^1.29.0",
+    "history": "^4.7.2",
     "next": "^7.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-ga": "^2.5.3",
+    "react-google-login": "^3.2.1",
     "react-grid-system": "^4.3.1",
     "react-sticky": "^6.0.3",
     "reactstrap": "^6.4.0",

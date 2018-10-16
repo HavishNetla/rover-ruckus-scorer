@@ -5,6 +5,12 @@ const Layout = ({ children }) => (
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"
       />
+      <meta
+        name="google-site-verification"
+        content="VDDEgj5F6b7KDaEs2VRPEZijfgRq3XKYxcRHKzhBftU"
+      />
+
+      <script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js" />
 
       <link
         rel="stylesheet"
