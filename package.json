@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "auth0-js": "^9.8.0",
     "date-fns": "^1.29.0",
     "history": "^4.7.2",
+    "moment": "^2.22.2",
     "next": "^7.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
