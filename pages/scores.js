@@ -31,20 +31,6 @@ export default class extends React.Component {
     localStorage.setItem('Score', '')
   }
 
-  generateCSV = () => {
-    const replacer = (key, value) => (value === null ? '' : value) // Specify how you want to handle null values here
-    const header = Object.keys(this.state.score[0])
-    let csv = this.state.score.map(row =>
-      header
-        .map(fieldName => JSON.stringify(row[fieldName], replacer))
-        .join(','),
-    )
-    csv.unshift(header.join(','))
-    csv = csv.join('\r\n')
-
-    console.log(csv)
-  }
-
   render() {
     return (
       <Layout>
@@ -60,21 +46,31 @@ export default class extends React.Component {
               <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Score</th>
+                  <th>Tele-Op Score</th>
+                  <th>Auto Score</th>
+                  <th>End Game Score</th>
+                  <th>Total Score</th>
                 </tr>
               </thead>
               <tbody>
-                {this.state.score.map(({ score, date }) => (
-                  <tr>
-                    <td>{date}</td>
-                    <td>{score}</td>
-                  </tr>
-                ))}
+                {this.state.score.map(
+                  ({ date, autoScore, teleScore, endScore, score }) => (
+                    <tr>
+                      <td>{date}</td>
+
+                      <td>{autoScore}</td>
+                      <td>{teleScore}</td>
+                      <td>{endScore}</td>
+                      <td>
+                        <strong>{score}</strong>
+                      </td>
+                    </tr>
+                  ),
+                )}
               </tbody>
             </Table>
           </Jumbotron>
         </Container>
-        <Button onClick={this.generateCSV()}>asd</Button>
       </Layout>
     )
   }
