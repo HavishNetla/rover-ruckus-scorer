@@ -65,7 +65,7 @@ export default class extends React.Component {
     if (storedNames !== '') {
       scores = JSON.parse(storedNames)
     }
-    const time = moment().format('MMM Do YYYY, h:mm a') // October 18th 2018, 6:40:39 pm
+    const time = moment().format('MMM Do YYYY') // October 18th 2018, 6:40:39 pm
 
     const object = {
       date: time,

@@ -1184,7 +1184,7 @@ binary-extensions@^1.0.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.12.0.tgz#c2d780f53d45bba8317a8902d4ceeaf3a6385b14"
 
-bluebird@^3.5.0, bluebird@^3.5.1:
+bluebird@3.5.2, bluebird@^3.5.0, bluebird@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.2.tgz#1be0908e054a751754549c270489c1505d4ab15a"
 
@@ -1779,6 +1779,10 @@ diffie-hellman@^5.0.0:
     bn.js "^4.1.0"
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
+
+doc-path@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/doc-path/-/doc-path-1.2.2.tgz#39e7edd19d221684fde3637f3dc31b031f0ceccb"
 
 doctrine@1.5.0:
   version "1.5.0"
@@ -2855,6 +2859,14 @@ jsesc@^2.5.1:
 jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
+
+json-2-csv@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/json-2-csv/-/json-2-csv-2.3.1.tgz#5c49ae42c56e5bf937cb39d74ee2688727f68c93"
+  dependencies:
+    bluebird "3.5.2"
+    doc-path "1.2.2"
+    underscore "1.9.1"
 
 json-parse-better-errors@^1.0.2:
   version "1.0.2"
@@ -4653,6 +4665,10 @@ uglifyjs-webpack-plugin@^1.2.4:
     uglify-es "^3.3.4"
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
+
+underscore@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
 
 underscore@~1.6.0:
   version "1.6.0"

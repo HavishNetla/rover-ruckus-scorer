@@ -1,18 +1,7 @@
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  Row,
-  Col,
-  Container,
-  Button,
-  CardSubtitle,
-  Jumbotron,
-  Table,
-} from 'reactstrap'
+import { Container, Button, Jumbotron, Table } from 'reactstrap'
+import converter from 'json-2-csv'
 import Layout from '../components/Layout'
 
-const scores = []
 export default class extends React.Component {
   state = {
     score: [],
@@ -31,6 +20,14 @@ export default class extends React.Component {
     localStorage.setItem('Score', '')
   }
 
+  onCSVgenerate = () => {
+    const json2csvCallback = function(err, csv) {
+      if (err) throw err
+      console.log(csv)
+    }
+    converter.json2csv(this.state.score, json2csvCallback)
+  }
+
   render() {
     return (
       <Layout>
@@ -40,6 +37,9 @@ export default class extends React.Component {
               <h1>Scores</h1>
               <Button color="danger" size="xs" onClick={this.onClearClick}>
                 Clear Scores
+              </Button>
+              <Button color="info" size="xs" onClick={this.onCSVgenerate}>
+                Generate CSV
               </Button>
             </div>
             <Table>
