@@ -1,4 +1,4 @@
-import { Container, Button, Jumbotron, Table } from 'reactstrap'
+import { Alert, Container, Button, Jumbotron, Table } from 'reactstrap'
 import converter from 'json-2-csv'
 import moment from 'moment'
 import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
@@ -23,7 +23,7 @@ export default class extends React.Component {
   componentDidMount() {
     const storedNames = localStorage.getItem('Score')
     if (storedNames !== '') {
-      const parsedData = JSON.parse(storedNames).reverse()
+      const parsedData = JSON.parse(storedNames)
       console.log(JSON.stringify(parsedData))
       this.setState({ score: parsedData })
 
@@ -58,6 +58,10 @@ export default class extends React.Component {
     return (
       <Layout>
         <Container style={{ marginTop: '3em' }}>
+          <Alert color="danger">
+            Clearing browse history removes all scores
+          </Alert>
+
           <Jumbotron>
             <LineChart discrete data={scoreData} />
 

@@ -11,10 +11,7 @@ import {
 import moment from 'moment'
 import ToggleButton from '../ToggleButton'
 
-let scores = [] /* eslint-disable-line */
-const test1 = {
-  scores: [{ score: 10, time: '10.18.19' }, { score: 100, time: '10.18.19' }],
-}
+let scores = []
 
 export default class extends React.Component {
   state = {
@@ -29,6 +26,12 @@ export default class extends React.Component {
     latch: 0,
     robot1Park: 0,
     robot2Park: 0,
+  }
+
+  componentDidMount() {
+    if (!localStorage.getItem('Score')) {
+      localStorage.setItem('Score', '')
+    }
   }
 
   onDepotIncrement = plus2 => {
@@ -63,6 +66,7 @@ export default class extends React.Component {
     const storedNames = localStorage.getItem('Score')
 
     if (storedNames !== '') {
+      console.log('asd')
       scores = JSON.parse(storedNames)
     }
     const time = moment().format('MMM Do YYYY h:mm:ss') // October 18th 2018, 6:40:39 pm
