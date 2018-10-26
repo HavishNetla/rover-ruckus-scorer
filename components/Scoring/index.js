@@ -8,7 +8,13 @@ import {
   ButtonGroup,
   Form,
 } from 'reactstrap'
+import moment from 'moment'
 import ToggleButton from '../ToggleButton'
+
+let scores = [] /* eslint-disable-line */
+const test1 = {
+  scores: [{ score: 10, time: '10.18.19' }, { score: 100, time: '10.18.19' }],
+}
 
 export default class extends React.Component {
   state = {
@@ -53,6 +59,26 @@ export default class extends React.Component {
     window.location.reload() // OOF
   }
 
+  onSaveClick = () => {
+    const storedNames = localStorage.getItem('Score')
+
+    if (storedNames !== '') {
+      scores = JSON.parse(storedNames)
+    }
+    const time = moment().format('MMM Do YYYY h:mm:ss') // October 18th 2018, 6:40:39 pm
+
+    const object = {
+      date: time,
+      score: this.calculateFinalScore(),
+      autoScore: this.calculateAutoScore(),
+      teleScore: this.calculateTeleScore(),
+      endScore: this.calculateEndGameScore(),
+    }
+    scores.push(object)
+    const stringify = JSON.stringify(scores)
+    localStorage.setItem('Score', stringify)
+  }
+
   onKeyPress = event => {
     if (event.which === 13 /* Enter */) {
       event.preventDefault()
@@ -69,6 +95,11 @@ export default class extends React.Component {
 
   calculateEndGameScore = () =>
     this.state.latch * 50 + this.state.robot1Park + this.state.robot2Park
+
+  calculateFinalScore = () =>
+    this.calculateAutoScore() +
+    this.calculateTeleScore() +
+    this.calculateEndGameScore()
 
   handleDepotChange = event => {
     if (event.target.value < 0) {
@@ -110,8 +141,16 @@ export default class extends React.Component {
               this.calculateTeleScore() +
               this.calculateEndGameScore()}
           </h1>
-          <Button outline color="danger" size="xs" onClick={this.onClearClick}>
+          <Button color="danger" size="xs" onClick={this.onClearClick}>
             Clear
+          </Button>
+          <Button
+            style={{ marginLeft: '1em' }}
+            color="success  "
+            size="xs"
+            onClick={this.onSaveClick}
+          >
+            Save
           </Button>
         </div>
 
@@ -125,7 +164,7 @@ export default class extends React.Component {
               <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
-                    <h2>Autonomous: {this.calculateAutoScore()}</h2>
+                    <h2>Autonomous: {this.calculateAutoScore()} </h2>
                   </Col>
                 </Row>
                 <Row style={{ textAlign: 'center' }}>
@@ -177,7 +216,7 @@ export default class extends React.Component {
               <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
-                    <h2>Tele-Op: {this.calculateTeleScore()}</h2>
+                    <h2>Tele-Op: {this.calculateTeleScore()} </h2>
                   </Col>
                 </Row>
                 <Row style={{ textAlign: 'center' }}>
@@ -233,7 +272,7 @@ export default class extends React.Component {
               <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
-                    <h2>End Game: {this.calculateEndGameScore()}</h2>
+                    <h2>End Game: {this.calculateEndGameScore()} </h2>
                   </Col>
                 </Row>
                 <Row style={{ textAlign: 'center' }}>
@@ -292,22 +331,6 @@ export default class extends React.Component {
             </Col>
           </Row>
         </Container>
-        <Button
-          onClick={() => {
-            const names = ['havish', 'denial', 'jeff']
-            localStorage.setItem('names', JSON.stringify(names))
-          }}
-        >
-          CLICK ME
-        </Button>
-        <Button
-          onClick={() => {
-            const storedNames = JSON.parse(localStorage.getItem('names'))
-            console.log(storedNames)
-          }}
-        >
-          CLICK ME 1
-        </Button>
       </div>
     )
   }
