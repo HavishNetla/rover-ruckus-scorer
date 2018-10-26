@@ -3,6 +3,7 @@ import converter from 'json-2-csv'
 import moment from 'moment'
 import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
 import Chart from 'chart.js'
+import DownloadLink from 'react-download-link'
 
 import Layout from '../components/Layout'
 
@@ -14,7 +15,6 @@ const scoreData = [
   { name: 'Tele', data: {} },
   { name: 'End', data: {} },
 ]
-
 export default class extends React.Component {
   state = {
     score: [],
@@ -49,9 +49,16 @@ export default class extends React.Component {
   onCSVgenerate = () => {
     const json2csvCallback = function(err, csv) {
       if (err) throw err
+      const csvFile = csv
       console.log(csv)
+      return (
+        <DownloadLink filename="myfile.csv" exportFile={() => csvFile}>
+          Save to disk
+        </DownloadLink>
+      )
     }
     converter.json2csv(this.state.score, json2csvCallback)
+    return <p>asd</p>
   }
 
   render() {
@@ -69,9 +76,6 @@ export default class extends React.Component {
               <h1>Scores</h1>
               <Button color="danger" size="xs" onClick={this.onClearClick}>
                 Clear Scores
-              </Button>
-              <Button color="info" size="xs" onClick={this.onCSVgenerate}>
-                Generate CSV
               </Button>
             </div>
             <Table>

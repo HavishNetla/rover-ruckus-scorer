@@ -3874,6 +3874,10 @@ react-chartkick@^0.3.0:
   dependencies:
     chartkick "^3.0.0"
 
+react-csv@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/react-csv/-/react-csv-1.0.18.tgz#2c9e1ceda02da84fc9a6b12a54804ba5a08b8a0f"
+
 react-dom@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.5.2.tgz#b69ee47aa20bab5327b2b9d7c1fe2a30f2cfa9d7"
@@ -3882,6 +3886,12 @@ react-dom@^16.5.2:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     schedule "^0.5.0"
+
+react-download-link@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-download-link/-/react-download-link-2.2.0.tgz#52247050fb063515cf52b9f4f9a94c32a9e200a9"
+  dependencies:
+    prop-types "^15.6.0"
 
 react-error-overlay@4.0.0:
   version "4.0.0"
