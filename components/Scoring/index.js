@@ -65,7 +65,7 @@ export default class extends React.Component {
     if (storedNames !== '') {
       scores = JSON.parse(storedNames)
     }
-    const time = moment().format('MMM Do YYYY') // October 18th 2018, 6:40:39 pm
+    const time = moment().format('MMM Do YYYY h:mm:ss') // October 18th 2018, 6:40:39 pm
 
     const object = {
       date: time,
@@ -164,7 +164,7 @@ export default class extends React.Component {
               <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
-                    <h2>Autonomous: {this.calculateAutoScore()}</h2>
+                    <h2>Autonomous: {this.calculateAutoScore()} </h2>
                   </Col>
                 </Row>
                 <Row style={{ textAlign: 'center' }}>
@@ -216,7 +216,7 @@ export default class extends React.Component {
               <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
-                    <h2>Tele-Op: {this.calculateTeleScore()}</h2>
+                    <h2>Tele-Op: {this.calculateTeleScore()} </h2>
                   </Col>
                 </Row>
                 <Row style={{ textAlign: 'center' }}>
@@ -272,7 +272,7 @@ export default class extends React.Component {
               <Jumbotron style={{ minWidth: 280 }}>
                 <Row style={{ textAlign: 'center', marginBottom: '3em' }}>
                   <Col>
-                    <h2>End Game: {this.calculateEndGameScore()}</h2>
+                    <h2>End Game: {this.calculateEndGameScore()} </h2>
                   </Col>
                 </Row>
                 <Row style={{ textAlign: 'center' }}>

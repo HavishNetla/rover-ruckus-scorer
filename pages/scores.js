@@ -1,6 +1,19 @@
 import { Container, Button, Jumbotron, Table } from 'reactstrap'
 import converter from 'json-2-csv'
+import moment from 'moment'
+import ReactChartkick, { LineChart, PieChart } from 'react-chartkick'
+import Chart from 'chart.js'
+
 import Layout from '../components/Layout'
+
+ReactChartkick.addAdapter(Chart)
+
+const scoreData = [
+  { name: 'Score', data: {} },
+  { name: 'Auto', data: {} },
+  { name: 'Tele', data: {} },
+  { name: 'End', data: {} },
+]
 
 export default class extends React.Component {
   state = {
@@ -9,9 +22,22 @@ export default class extends React.Component {
 
   componentDidMount() {
     const storedNames = localStorage.getItem('Score')
-    console.log(storedNames)
     if (storedNames !== '') {
-      this.setState({ score: JSON.parse(storedNames) })
+      const parsedData = JSON.parse(storedNames).reverse()
+      console.log(JSON.stringify(parsedData))
+      this.setState({ score: parsedData })
+
+      parsedData.map(({ score, autoScore, teleScore, endScore, date }) => {
+        const formatedDate = moment([date], 'MMM Do YYYY h:mm:ss').format(
+          'YYYY-MM-DD h:mm:ss',
+        )
+
+        scoreData[0].data[formatedDate] = score
+        scoreData[1].data[formatedDate] = autoScore
+        scoreData[2].data[formatedDate] = teleScore
+        scoreData[3].data[formatedDate] = endScore
+      })
+      console.log(JSON.stringify(scoreData))
     }
   }
 
@@ -33,6 +59,8 @@ export default class extends React.Component {
       <Layout>
         <Container style={{ marginTop: '3em' }}>
           <Jumbotron>
+            <LineChart discrete data={scoreData} />
+
             <div style={{ marginBottom: '2em', textAlign: 'center' }}>
               <h1>Scores</h1>
               <Button color="danger" size="xs" onClick={this.onClearClick}>
