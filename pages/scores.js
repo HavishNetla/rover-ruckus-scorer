@@ -70,7 +70,7 @@ export default class extends React.Component {
           </Alert>
 
           <Jumbotron>
-            <LineChart discrete data={scoreData} />
+            <LineChart download discrete data={scoreData} />
 
             <div style={{ marginBottom: '2em', textAlign: 'center' }}>
               <h1>Scores</h1>
