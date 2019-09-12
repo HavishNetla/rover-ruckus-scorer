@@ -1,22 +1,22 @@
 {
   "dependencies": {
     "chart.js": "^2.7.3",
-    "date-fns": "^1.29.0",
+    "date-fns": "^2.2.1",
     "history": "^4.7.2",
-    "json-2-csv": "^2.3.1",
+    "json-2-csv": "^3.5.6",
     "moment": "^2.22.2",
-    "next": "^7.0.0",
+    "next": "^9.0.5",
     "react": "^16.5.2",
     "react-chartkick": "^0.3.0",
     "react-csv": "^1.0.18",
     "react-dom": "^16.5.2",
     "react-download-link": "^2.2.0",
     "react-ga": "^2.5.3",
-    "react-google-login": "^3.2.1",
-    "react-grid-system": "^4.3.1",
+    "react-google-login": "^5.0.5",
+    "react-grid-system": "^5.0.2",
     "react-sticky": "^6.0.3",
-    "reactstrap": "^6.4.0",
-    "universal-cookie": "^3.0.4"
+    "reactstrap": "^8.0.1",
+    "universal-cookie": "^4.0.2"
   },
   "name": "RoverRuckusScorer",
   "version": "1.0.0",
@@ -28,6 +28,6 @@
     "start": "next start"
   },
   "devDependencies": {
-    "eslint-config-lemon": "^0.1.8"
+    "eslint-config-lemon": "^0.4.10"
   }
 }
